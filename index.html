@@ -72,7 +72,8 @@
             color: #2d3e50;
             margin-bottom: 15px;
             font-weight: 300;
-            word-break: break-word; /* ensure long words break */
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         ul, ol {
@@ -114,19 +115,21 @@
             color: white;
             margin-bottom: 15px;
             display: flex;
-            align-items: flex-start; /* align items to top */
+            align-items: flex-start;
             gap: 12px;
             font-size: 16px;
             font-weight: 400;
-            word-break: break-word; /* break long words/links */
+            word-break: break-word;
+            overflow-wrap: break-word;
+            flex-wrap: wrap; /* allow the link to move to a new line if needed */
         }
 
         .contact-box i {
             font-size: 20px;
             width: 24px;
             text-align: center;
-            flex-shrink: 0; /* prevent icon from shrinking */
-            margin-top: 2px; /* fine-tune alignment */
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         .contact-box a {
@@ -134,7 +137,10 @@
             text-decoration: none;
             border-bottom: 1px dotted rgba(255,255,255,0.5);
             font-weight: 400;
-            word-break: break-word; /* break long email/URL */
+            word-break: break-word;
+            overflow-wrap: break-word;
+            flex: 1; /* take remaining space and allow wrapping */
+            min-width: 0; /* allow flex item to shrink below content size */
         }
 
         .contact-box a:hover {
