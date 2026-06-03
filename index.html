@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Privacy Policy - Age Calculator</title>
-    <!-- Google Fonts: Poppins -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #09637E;
+            --primary-dark: #064e65;
+            --secondary: #088395;
+            --accent: #7AB2B2;
+            --bg: #EBF4F6;
+            --text: #2d3e50;
+            --text-light: #5a7a8a;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #09637E 0%, #088395 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -30,47 +36,162 @@
         .privacy-card {
             max-width: 900px;
             width: 100%;
-            background-color: #EBF4F6;
+            background-color: var(--bg);
             border-radius: 30px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            box-shadow: 0 25px 60px -12px rgba(0,0,0,0.35);
             overflow: hidden;
-            padding: 40px;
-            transition: transform 0.3s ease;
+            padding: 48px 48px 40px;
         }
 
-        .privacy-card:hover {
-            transform: translateY(-5px);
+        /* ── Header ── */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 6px;
         }
 
-        h1 {
-            font-size: 32px;
-            font-weight: 600;
-            color: #09637E;
-            margin-bottom: 5px;
-            border-bottom: 3px solid #7AB2B2;
-            padding-bottom: 10px;
-            display: inline-block;
+        .header-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(9,99,126,0.25);
         }
 
-        .last-updated {
-            font-size: 14px;
-            color: #088395;
-            margin-bottom: 30px;
+        .header-logo-fallback {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(9,99,126,0.25);
+        }
+
+        .header-logo-fallback i {
+            color: white;
+            font-size: 26px;
+        }
+
+        .header-text h1 {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary);
+            border: none;
+            padding: 0;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .header-text span {
+            font-size: 13px;
+            color: var(--text-light);
             font-weight: 400;
         }
 
-        h2 {
-            font-size: 20px;
+        .divider-gradient {
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent), transparent);
+            border-radius: 2px;
+            margin: 16px 0 6px;
+        }
+
+        .last-updated {
+            font-size: 13px;
+            color: var(--secondary);
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+
+        /* ── Play Store Banner ── */
+        .playstore-banner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 18px;
+            padding: 18px 24px;
+            margin-bottom: 32px;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 6px 20px rgba(9,99,126,0.25);
+        }
+
+        .playstore-banner:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(9,99,126,0.35);
+        }
+
+        .playstore-banner i {
+            font-size: 32px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .playstore-banner-text {
+            flex: 1;
+        }
+
+        .playstore-banner-text .label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.75);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .playstore-banner-text .name {
+            font-size: 16px;
+            color: white;
             font-weight: 600;
-            color: #09637E;
-            margin: 25px 0 10px 0;
+        }
+
+        .playstore-banner .arrow {
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* ── Section Headings ── */
+        .section {
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 28px 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 .section-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        h2 .section-icon i {
+            color: white;
+            font-size: 14px;
         }
 
         p {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #2d3e50;
-            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 14px;
             font-weight: 300;
             word-break: break-word;
             overflow-wrap: break-word;
@@ -78,34 +199,75 @@
 
         ul, ol {
             margin-left: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         li {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #2d3e50;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text);
             font-weight: 300;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         strong {
             font-weight: 600;
-            color: #09637E;
+            color: var(--primary);
         }
 
+        /* ── Premium Box ── */
+        .premium-box {
+            background: linear-gradient(135deg, #f0f9fa 0%, #e0f2f4 100%);
+            border: 1.5px solid var(--accent);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin: 16px 0 20px;
+        }
+
+        .premium-box .premium-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .premium-box .premium-title i {
+            color: var(--secondary);
+        }
+
+        .premium-box ul {
+            margin-left: 16px;
+            margin-bottom: 0;
+        }
+
+        .premium-box li {
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            margin: 28px 0;
+        }
+
+        /* ── Contact Box ── */
         .contact-box {
-            background: linear-gradient(135deg, #7AB2B2 0%, #088395 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
             border-radius: 20px;
-            padding: 30px;
-            margin-top: 30px;
+            padding: 28px 30px;
+            margin-top: 8px;
             color: white;
         }
 
         .contact-box h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -113,20 +275,22 @@
 
         .contact-box p {
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 400;
             word-break: break-word;
             overflow-wrap: break-word;
-            flex-wrap: wrap; /* allow the link to move to a new line if needed */
+            flex-wrap: wrap;
         }
 
+        .contact-box p:last-child { margin-bottom: 0; }
+
         .contact-box i {
-            font-size: 20px;
-            width: 24px;
+            font-size: 19px;
+            width: 22px;
             text-align: center;
             flex-shrink: 0;
             margin-top: 2px;
@@ -139,89 +303,210 @@
             font-weight: 400;
             word-break: break-word;
             overflow-wrap: break-word;
-            flex: 1; /* take remaining space and allow wrapping */
-            min-width: 0; /* allow flex item to shrink below content size */
+            flex: 1;
+            min-width: 0;
         }
 
-        .contact-box a:hover {
-            border-bottom: 1px solid white;
-        }
+        .contact-box a:hover { border-bottom: 1px solid white; }
 
         .footer-note {
             text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-            color: #09637E;
+            margin-top: 28px;
+            font-size: 13px;
+            color: var(--text-light);
             font-weight: 400;
         }
 
-        hr {
-            border: none;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #7AB2B2, transparent);
-            margin: 20px 0;
-        }
-
-        /* Responsive */
         @media (max-width: 600px) {
-            .privacy-card {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 26px;
-            }
-            h2 {
-                font-size: 18px;
-            }
-            p, li {
-                font-size: 14px;
-            }
-            .contact-box p {
-                font-size: 14px;
-            }
+            .privacy-card { padding: 24px 20px 28px; }
+            .header-text h1 { font-size: 24px; }
+            h2 { font-size: 16px; }
+            p, li { font-size: 14px; }
+            .playstore-banner { padding: 14px 18px; }
+            .playstore-banner-text .name { font-size: 14px; }
         }
     </style>
 </head>
 <body>
     <div class="privacy-card">
-        <h1>Privacy Policy</h1>
-        <div class="last-updated">Last Updated: 22 February 2026</div>
+
+        <!-- Header -->
+        <div class="header">
+            <img src="logo.png" alt="Age Calculator Logo" class="header-logo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="header-logo-fallback" style="display:none;">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="header-text">
+                <h1>Privacy Policy</h1>
+                <span>Age Calculator — Date of Birth Calculator</span>
+            </div>
+        </div>
+
+        <div class="divider-gradient"></div>
+        <div class="last-updated">Last Updated: June 2026</div>
+
+        <!-- Play Store Banner -->
+        <a class="playstore-banner" href="https://play.google.com/store/apps/details?id=com.tetratech.agecalculator.birthdaytracker" target="_blank">
+            <i class="fab fa-google-play"></i>
+            <div class="playstore-banner-text">
+                <div class="label">Available on</div>
+                <div class="name">Download on Google Play</div>
+            </div>
+            <i class="fas fa-arrow-right arrow"></i>
+        </a>
 
         <p>Welcome to <strong>Age Calculator</strong>. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. Please read it carefully.</p>
 
-        <h2>1. Information We Collect</h2>
-        <p>We do not collect any personal information automatically. The app stores your saved events (birthdays, anniversaries, reminders) locally on your device using shared preferences. This data never leaves your device and is not accessible by us or any third party.</p>
-        <p>If you contact us via email or WhatsApp, we may receive your name, email address, and message content. We use this only to respond to your inquiry.</p>
-
-        <h2>2. How We Use Your Information</h2>
-        <p>We use the information you provide solely to:</p>
+        <!-- 1 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-database"></i></span>
+            1. Information We Collect
+        </h2>
+        <p>We collect only what is necessary to provide our services:</p>
         <ul>
-            <li>Respond to your support requests or feedback.</li>
+            <li><strong>Locally stored data:</strong> Saved events (birthdays, anniversaries, reminders) are stored on your device using shared preferences and are accessible only by you.</li>
+            <li><strong>Google Account information:</strong> If you choose to sign in with Google (a premium feature), we receive your name, email address, and profile photo from Google to identify your account.</li>
+            <li><strong>Cloud-synced events:</strong> Premium subscribers who sign in with Google have their saved events stored securely in Firebase Firestore, linked to their Google account.</li>
+            <li><strong>Purchase information:</strong> Subscription purchases are processed by Google Play and RevenueCat. We receive confirmation of your subscription status but do not store your payment details.</li>
+            <li><strong>Contact information:</strong> If you contact us via email or WhatsApp, we may receive your name, email, and message content, used solely to respond to your inquiry.</li>
+        </ul>
+
+        <!-- 2 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-cogs"></i></span>
+            2. How We Use Your Information
+        </h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>Store and sync your saved events across devices (premium subscribers).</li>
+            <li>Verify your subscription status and unlock premium features.</li>
+            <li>Send local notifications for birthdays, anniversaries, and reminders.</li>
+            <li>Respond to support requests and feedback.</li>
             <li>Improve the app and user experience.</li>
         </ul>
-        <p>We do not sell, trade, or rent your personal information to others.</p>
+        <p>We do not sell, trade, or rent your personal information to any third party.</p>
 
-        <h2>3. Third-Party Services</h2>
-        <p>The app may contain links to external services (e.g., for rating the app on Google Play, sharing via WhatsApp, or opening privacy policy in a browser). These services have their own privacy policies, and we are not responsible for their practices.</p>
+        <!-- 3 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-crown"></i></span>
+            3. Premium Subscriptions
+        </h2>
+        <p>Age Calculator offers optional premium subscriptions that unlock additional features:</p>
 
-        <h2>4. Data Security</h2>
-        <p>We implement reasonable security measures to protect your information. However, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
+        <div class="premium-box">
+            <div class="premium-title"><i class="fas fa-star"></i> Premium Features</div>
+            <ul>
+                <li>Remove all advertisements from the app</li>
+                <li>Sign in with Google for cloud backup</li>
+                <li>Sync saved events across multiple devices via Firebase</li>
+                <li>Offline access to your synced events</li>
+            </ul>
+        </div>
 
-        <h2>5. Children's Privacy</h2>
-        <p>Our app is not intended for children under 13. We do not knowingly collect personal information from children under 13. If we become aware that a child has provided us with personal information, we will delete it.</p>
+        <p>Subscriptions are available on a <strong>monthly ($0.99/month)</strong> or <strong>yearly ($9.99/year)</strong> basis. Payments are processed securely by Google Play. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period. You can manage or cancel your subscription at any time through your Google Play account settings.</p>
+        <p>Subscription status is managed through <strong>RevenueCat</strong>, a third-party service that helps us verify active subscriptions. RevenueCat may collect anonymous usage data to provide this service. See their privacy policy at <a href="https://www.revenuecat.com/privacy" target="_blank" style="color: var(--secondary);">revenuecat.com/privacy</a>.</p>
 
-        <h2>6. Changes to This Privacy Policy</h2>
-        <p>We may update this policy from time to time. We will notify you of any changes by posting the new policy on this page. You are advised to review this page periodically for any changes.</p>
+        <!-- 4 -->
+        <h2>
+            <span class="section-icon"><i class="fab fa-google"></i></span>
+            4. Google Sign-In & Cloud Sync
+        </h2>
+        <p>Google Sign-In is an optional feature available exclusively to premium subscribers. When you sign in with Google:</p>
+        <ul>
+            <li>Your Google account name, email address, and profile photo are used to identify your account within the app.</li>
+            <li>Your saved events are stored in <strong>Firebase Firestore</strong> under your unique Google user ID, in the path <code style="background: #ddeef0; padding: 2px 6px; border-radius: 4px; font-size: 13px;">age_calculator_users/{userId}/events</code>.</li>
+            <li>Your data is protected by Firebase security rules that ensure only you can read or write your own events.</li>
+            <li>You can sign out at any time, which stops cloud sync. Your locally stored events remain on your device.</li>
+            <li>You can request deletion of your cloud data at any time through the Account settings in the app.</li>
+        </ul>
+        <p>We use <strong>Firebase</strong> (by Google) for authentication and cloud storage. Firebase's privacy policy can be found at <a href="https://firebase.google.com/support/privacy" target="_blank" style="color: var(--secondary);">firebase.google.com/support/privacy</a>.</p>
 
-        <h2>7. Your Consent</h2>
-        <p>By using our app, you consent to our Privacy Policy and agree to its terms.</p>
+        <!-- 5 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-ad"></i></span>
+            5. Advertising
+        </h2>
+        <p>The free version of Age Calculator displays advertisements served by <strong>Google AdMob</strong> and may include mediation through <strong>Unity Ads</strong>. These services may collect device identifiers and usage data to serve relevant ads. Premium subscribers have all advertisements removed.</p>
+        <p>For more information about how Google uses data from apps that use AdMob, visit <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--secondary);">policies.google.com/privacy</a>.</p>
+
+        <!-- 6 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-share-alt"></i></span>
+            6. Third-Party Services
+        </h2>
+        <p>Our app integrates the following third-party services, each with their own privacy policies:</p>
+        <ul>
+            <li><strong>Google Play:</strong> For app distribution and subscription billing.</li>
+            <li><strong>Firebase (Google):</strong> For authentication and cloud data storage.</li>
+            <li><strong>RevenueCat:</strong> For subscription management and verification.</li>
+            <li><strong>Google AdMob:</strong> For displaying advertisements (free users only).</li>
+            <li><strong>Unity Ads:</strong> For ad mediation (free users only).</li>
+            <li><strong>Firebase Cloud Messaging:</strong> For push notifications.</li>
+        </ul>
+
+        <!-- 7 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-shield-alt"></i></span>
+            7. Data Security
+        </h2>
+        <p>We implement reasonable security measures to protect your information:</p>
+        <ul>
+            <li>Cloud data is stored in Firebase Firestore with security rules ensuring only authenticated users can access their own data.</li>
+            <li>All communication with Firebase uses HTTPS encryption.</li>
+            <li>We do not store your Google credentials — authentication is handled entirely by Google.</li>
+            <li>Local data is stored in Android's shared preferences, protected by the operating system's app sandbox.</li>
+        </ul>
+        <p>However, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
+
+        <!-- 8 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-user-times"></i></span>
+            8. Data Deletion
+        </h2>
+        <p>You have full control over your data:</p>
+        <ul>
+            <li><strong>Local data:</strong> Can be deleted by uninstalling the app.</li>
+            <li><strong>Cloud data:</strong> Signed-in premium users can delete all cloud-synced events and their account data through <strong>Account Settings → Delete Account</strong> in the app. This permanently removes all your data from Firebase Firestore.</li>
+            <li><strong>Google Sign-In access:</strong> Can be revoked at any time from your Google Account settings at <a href="https://myaccount.google.com/permissions" target="_blank" style="color: var(--secondary);">myaccount.google.com/permissions</a>.</li>
+        </ul>
+
+        <!-- 9 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-child"></i></span>
+            9. Children's Privacy
+        </h2>
+        <p>Our app is not intended for children under 13. We do not knowingly collect personal information from children under 13. If we become aware that a child has provided us with personal information, we will delete it promptly.</p>
+
+        <!-- 10 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-sync-alt"></i></span>
+            10. Changes to This Privacy Policy
+        </h2>
+        <p>We may update this policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. We will notify you of significant changes by updating the date at the top of this page. We encourage you to review this policy periodically.</p>
+
+        <!-- 11 -->
+        <h2>
+            <span class="section-icon"><i class="fas fa-check-circle"></i></span>
+            11. Your Consent
+        </h2>
+        <p>By using our app, you consent to this Privacy Policy. If you sign in with Google or purchase a subscription, you additionally consent to the collection and processing of data as described in Sections 3 and 4.</p>
 
         <hr>
 
         <div class="contact-box">
             <h3><i class="fas fa-address-card"></i> Contact Us</h3>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923164168178" target="_blank">+92 316 4168178</a></p>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:awanmsaim182@gmail.com">awanmsaim182@gmail.com</a></p>
+            <p><i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/923164168178" target="_blank">+92 316 4168178</a>
+            </p>
+            <p><i class="fas fa-envelope"></i>
+                <a href="mailto:awanmsaim182@gmail.com">awanmsaim182@gmail.com</a>
+            </p>
+            <p><i class="fab fa-google-play"></i>
+                <a href="https://play.google.com/store/apps/details?id=com.tetratech.agecalculator.birthdaytracker" target="_blank">
+                    Age Calculator on Google Play
+                </a>
+            </p>
         </div>
 
         <div class="footer-note">
